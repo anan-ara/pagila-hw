@@ -8,5 +8,5 @@ SELECT
 	SUM(amount) AS "sum"
 FROM staff
 INNER JOIN payment USING (staff_id)
-WHERE payment_date LIKE '2020-01-%'
+WHERE EXTRACT(YEAR FROM payment_date) = 2020 AND EXTRACT(MONTH FROM payment_date) = 01
 GROUP BY first_name, last_name;
